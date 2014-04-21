@@ -1,0 +1,20 @@
+.container.top-padding-med
+    .pull-right
+        //a(href="/blog/post")
+            i.glyphicon.glyphicon-plus-sign New
+        form.form-inline
+            .form-group
+                input.form-control(ng-model="searchText", placeholder="Filter")
+            .form-group.margin-left-med
+                select.form-control(ng-model="sortOrder", ng-options="item.value as item.text for item in sortOptions")
+            //a(href="" ng-click="sOrder('published')") Published
+
+            div(ng-repeat="blogEntry in blog | filter:searchText | orderBy:sortOrder:reverse")
+                //button.btn.btn-danger(go-click="/blog/{{blogEntry._id}}/delete")
+                        i x delete
+                //a(href="/blog/{{blogEntry._id}}/edit") Edit
+                a(href="/blog/{{blogEntry._id}}")
+                    .jumbotron
+                        {{blogEntry.title}}
+                        p {{ blogEntry.published | date}}
+                        div(ng-bind-html="blogEntry.text")

@@ -1,0 +1,22 @@
+{
+  "name": "XecutionerArts",
+  "version": "0.0.0",
+  "authors": [
+    "komrad.hlopenkoff@ya.ru"
+  ],
+  "description": "\"WebSite\"",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "toastr": "~2.0.1",
+    "angular": "~1.2.15",
+    "angular-resource": "~1.2.15",
+    "angular-route": "~1.2.15",
+    "bootstrap": "~3.0.2",
+    "angular-mocks": "~1.2.14",
+    "angular-sanitize": "~1.2.15",
+    "angular-cookies": "~1.2.15",
+    "angular-i18n": "~1.2.15"
+  }
+}

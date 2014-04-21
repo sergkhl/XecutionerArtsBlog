@@ -1,0 +1,26 @@
+.container
+    .well
+        form.form-horizontal(name="editRecordForm" crud-edit="blogrecord")
+            fieldset
+                legend Edit Post
+                .form-group
+                    label.col-md-2.control-label(for="title") Title
+                    .col-md-10
+                        input.form-control(name="title", type="text", placeholder="Title", ng-model="blogrecord.title", required)
+                .form-group
+                    label.col-md-2.control-label(for="text") Text
+                    .col-md-10
+                        input.form-control(name="text", type="text", placeholder="Text", ng-model="blogrecord.text", required)
+                .form-group
+                    label.col-md-2.control-label(for="author") Author
+                    .col-md-10
+                        input.form-control(name="author", type="text", placeholder="Author", ng-model="blogrecord.author", required)
+                .form-group
+                    .row-fluid.div
+                        hr
+                        <crud-buttons class="span12"></crud-buttons>
+                    .col-md-10.col-md-offset-2
+                        .pull-right
+                            button.btn.btn-primary(ng-click="update()", ng-disabled="editRecordForm.$invalid") Update
+                            | &nbsp;
+                            a.btn.btn-default(href="/blog") Cancel
