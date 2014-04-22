@@ -1,18 +1,26 @@
 body
   padding-top 69px
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNiIgaGVpZ2h0PSI2Ij4KPHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgZmlsbD0iI2VlZWVlZSI+PC9yZWN0Pgo8ZyBpZD0iYyI+CjxyZWN0IHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiNlNmU2ZTYiPjwvcmVjdD4KPHJlY3QgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMiIgZmlsbD0iI2Q4ZDhkOCI+PC9yZWN0Pgo8L2c+Cjx1c2UgeGxpbms6aHJlZj0iI2MiIHg9IjMiIHk9IjMiPjwvdXNlPgo8L3N2Zz4=");
+  //background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiPjwvcmVjdD4KPC9zdmc+");
+  //background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCI+CjxmaWx0ZXIgaWQ9Im4iIHg9IjAiIHk9IjAiPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43IiBudW1PY3RhdmVzPSIxMCIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CjwvZmlsdGVyPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzAwMCI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjQiPjwvcmVjdD4KPC9zdmc+");
 
 .navbar-header a.navbar-brand
-  margin-top -15px
-  margin-bottom -20px
+  margin-top -13px
+  margin-bottom -30px
+  color: #1aff98 !important
   p
-    color #1b96ff
+    font-size 80%
+    margin-bottom -10px
+    color #09ff74
 
-.navbar-header
-  background-color #666451
 
-.navbar
-  background-color #666451
-  //background-image url(http://payload71.cargocollective.com/1/3/111325/3721505/twist.gif)
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus
+  color: #ffffff
+
+.navbar-inverse .navbar-brand { color: #1aff98}
+.navbar-inverse .navbar-brand:hover { color: #ffffff}
+//.navbar-inverse .navbar-brand:link { color: #ffffff}
 
 footer
   padding-left 15px
@@ -42,12 +50,13 @@ section
   display block
 
 .containerOuter
+  height 350px
   width 100%
   overflow hidden
 
 #aboutMeIntro
   background url(https://lh3.googleusercontent.com/-pvhkbKpgGLI/U0978bPDhiI/AAAAAAAACC0/SKm7JUrm71E/w1032-h387-no/DSC_4314.jpg) no-repeat center bottom #fff;
-
+  //background url(https://lh3.googleusercontent.com/-TQOrDDYmkV0/U1YwdB1dyJI/AAAAAAAACIc/euRxYlzQ2OM/w858-h568-no/DSC_7564.jpg)
 #aboutMeIntro h2
   font-size 300%
   //background url(http://payload71.cargocollective.com/1/3/111325/3721505/twist.gif)
@@ -57,7 +66,40 @@ section
   text-align center
   margin 4.5em 0px 2em
 
+.reveal-animation
+    // add the vendor prefixed versions as well
+    transition: all 1s;
+    -webkit-filter: grayscale(100%);
 
+.reveal-animation:hover
+  //opacity: 0.5;
+  -webkit-filter: grayscale(0%);
+
+.glow-animation
+  text-shadow: 0 0 0px #ffffff
+  transition: all 0.5s;
+
+.glow-animation:hover
+  text-shadow: 0 0 10px #f9ff4c
+
+.navbar, navbar-header {
+
+  background-color: #2c2c2c; /* fallback color, place your own */
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, #5e5e5e, #818181);
+  background-image: -ms-linear-gradient(top, #5e5e5e, #818181);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5e5e5e), to(#818181));
+  background-image: -webkit-linear-gradient(top, #5e5e5e, #818181);
+  background-image: -o-linear-gradient(top, #5e5e5e, #818181);
+  background-image: linear-gradient(top, #5e5e5e, #818181);
+  background-repeat: repeat-x;
+}
+
+.three-columns
+  -webkit-column-count:3; /* Chrome, Safari, Opera */
+  -moz-column-count:3; /* Firefox */
+  column-count:3;
 
 .css-class-add, .css-class-remove
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;

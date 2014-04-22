@@ -1,0 +1,6 @@
+.panel.panel-primary
+    .panel-heading.text-center Frequently Used Technologies
+    .panel-body
+        .row(ng-repeat="tech in techs | filter:{featured:true}")
+            .col-md-12
+                a(href="/technologies") {{tech.name}}

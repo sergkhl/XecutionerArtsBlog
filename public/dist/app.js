@@ -1,4 +1,4 @@
-/*! XecutionerArts - v0.0.0 - 2014-04-20
+/*! XecutionerArts - v0.0.0 - 2014-04-22
  * https://github.com/
  * Copyright (c) 2014 Sergio Khlopenkov;
  * Licensed MIT
@@ -29,6 +29,12 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
         })
         .when('/signup', { templateUrl: '/partials/account/signup',
             controller: 'mvSignupCtrl'
+        })
+        .when('/signin', { templateUrl: '/partials/account/navbar-login',
+            //controller: 'mvNavBarLoginCtrl'
+        })
+        .when('/technologies', { templateUrl: '/partials/techs/tech-list',
+            controller: 'mvTechListCtrl'
         })
         .when('/profile', { templateUrl: '/partials/account/profile',
             controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
@@ -471,9 +477,38 @@ angular.module('app').controller('mvCourseListCtrl', function ($scope, mvCachedC
 angular.module('app').controller('mvMainAboutCtrl', function ($scope) {
     //$scope.courses = mvCachedCourses.query();
 });
-angular.module('app').controller('mvMainCtrl', function ($scope, mvCachedBlog, mvCachedCourses) {
-    $scope.courses = mvCachedCourses.query();
+angular.module('app').controller('mvMainCtrl', function ($scope, mvCachedBlog, mvCachedTechs) {
+    $scope.techs = mvCachedTechs.query();
     $scope.blogrecords = mvCachedBlog.query();
+});
+angular.module('app').factory('mvCachedTechs', function (mvTech) {
+    var TechList;
+
+    return {
+        query: function () {
+            if (!TechList) {
+                TechList = mvTech.query();
+            }
+
+            return TechList;
+        }
+    }
+})
+angular.module('app').factory('mvTech', function ($resource) {
+    var TechResource = $resource('/api/techs/:_id', {_id: "@id"}, {
+        update: {method: 'PUT', isArray: false}
+    });
+
+    return TechResource;
+});
+angular.module('app').controller('mvTechListCtrl', function ($scope, mvCachedTechs) {
+    $scope.techs = mvCachedTechs.query();
+
+    $scope.sortOptions = [
+        {value: "name", text: "Sort by Name"},
+        {value: "released", text: "Sort by Release Date"}
+    ];
+    $scope.sortOrder = $scope.sortOptions[0].value;
 });
 angular.module('templates.app', []);
 

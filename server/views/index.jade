@@ -4,18 +4,18 @@ block main-content
   .navbar.navbar-inverse.navbar-fixed-top
     .container
       .navbar-header
-        a.navbar-brand(href="/") XecutionerArts
-          h6 -What's your plan?
+        a.glow-animation.navbar-brand(href="/about") XecutionerArts
+          p -What's your plan?
       .navbar-collapse.collapse
         ul.nav.navbar-nav
           li
-            a(href="/") Home
+            a.glow-animation(href="/") Home
           li
-            a(href="/blog") Blog
+            a.glow-animation(href="/blog") Blog
+          //li
+            a(href="/technologies") Technologies
           li
-            a(href="/courses") Courses
-          li
-            a(href="/about") About
+            a.glow-animation(href="/about") About
         //div(ng-include="'/partials/account/navbar-login'")
 
   section.content
@@ -23,3 +23,5 @@ block main-content
 
   footer.container.text-center
     p “Don’t grieve. Anything you lose comes round in another form.” – Rumi
+
+

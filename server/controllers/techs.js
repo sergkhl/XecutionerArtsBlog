@@ -1,4 +1,4 @@
-var Tech = require('mongoose').model('Tech');
+var Tech = require('mongoose').model('Technology');
 
 exports.getTechs = function(req, res) {
     Tech.find({}).exec(function(err, collection) {
