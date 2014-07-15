@@ -104,45 +104,6 @@ section
   //float right
   //overflow:auto
   //margin-left: 200px;
-#left-fade-menu,
-#left-fade-toggle
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 60px;
-  left: 0;
-
-#left-fade-menu
-  //opacity 0
-  z-index: 1
-  width: 300px
-  display none
-  -webkit-border-radius: 0 10px 10px 0;
-  border-radius: 0 10px 10px 0;
-  background: -webkit-linear-gradient(0deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
-  background: -moz-linear-gradient(90deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
-  background: linear-gradient(90deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
-
-
-#left-fade-toggle
-  //z-index: 2
-  width: 100px
-  //background-image: url('/assets/images/eye.svg')
-
-fade-in.ng-enter-stagger
-  -webkit-transition-delay:200ms;
-  transition-delay:200ms;
-  /* safeguard to prevent accidental CSS inheritance */
-  -webkit-transition-duration:0;
-  transition-duration:0;
-
-.fade-in.ng-enter
-  -webkit-animation: 2s fade-in-enter-animation;
-  animation: 2s fade-in-enter-animation;
-
-.fade-in.ng-leave
-  -webkit-animation: 2s fade-in-leave-animation;
-  animation: 2s fade-in-leave-animation;
 
 .hover-logo
   width 62px
