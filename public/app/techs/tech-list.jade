@@ -14,7 +14,7 @@
             tr(ng-repeat="tech in techs | filter:searchText | orderBy:sortOrder")
                 td
                     a(href="{{tech.url}}")
-                        div.reveal-animation
+                        div.reveal-animation.fade-in
                             img(src='{{tech.image[0].url}}' height='64px')
                             //{{tech.name}}
                 td {{tech.released | date}}

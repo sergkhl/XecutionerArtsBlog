@@ -1,5 +1,6 @@
 body {
   padding-top: 69px;
+  position: relative;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNiIgaGVpZ2h0PSI2Ij4KPHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iNiIgZmlsbD0iI2VlZWVlZSI+PC9yZWN0Pgo8ZyBpZD0iYyI+CjxyZWN0IHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiNlNmU2ZTYiPjwvcmVjdD4KPHJlY3QgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMiIgZmlsbD0iI2Q4ZDhkOCI+PC9yZWN0Pgo8L2c+Cjx1c2UgeGxpbms6aHJlZj0iI2MiIHg9IjMiIHk9IjMiPjwvdXNlPgo8L3N2Zz4=");
 }
 .navbar-header a.navbar-brand {
@@ -25,6 +26,7 @@ body {
 footer {
   padding-left: 15px;
   padding-right: 15px;
+  clear: both;
 }
 footer p {
   border-top: 1px solid #d7e0e2;
@@ -93,46 +95,33 @@ navbar-header {
   background-image: linear-gradient(top, #5e5e5e, #818181);
   background-repeat: repeat-x;
 }
-.three-columns {
-  -webkit-column-count: 3;
-/* Chrome, Safari, Opera */
-  -moz-column-count: 3;
-/* Firefox */
-  column-count: 3;
+#left-fade-menu,
+#left-fade-toggle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
 }
-.css-class-add,
-.css-class-remove {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+#left-fade-menu {
+  z-index: 1;
+  width: 300px;
+  display: none;
+  -webkit-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+  background: -webkit-linear-gradient(0deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
+  background: -moz-linear-gradient(90deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(119,209,138,0.8) 0, rgba(255,255,255,0.8) 75%, rgba(255,255,255,0) 100%);
 }
-.css-class,
-.css-class-add.css-class-add-active {
-  color: #f00;
-  font-size: 3em;
+#left-fade-toggle {
+  width: 100px;
 }
-.css-class-remove.css-class-remove-active {
-  font-size: 1em;
-  color: #000;
-}
-@-webkit-keyframes animateMe-add {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+fade-in.ng-enter-stagger {
+  -webkit-transition-delay: 200ms;
+  transition-delay: 200ms;
+/* safeguard to prevent accidental CSS inheritance */
+  -webkit-transition-duration: 0;
+  transition-duration: 0;
 }
 .fade-in.ng-enter {
   -webkit-animation: 2s fade-in-enter-animation;
@@ -142,93 +131,57 @@ navbar-header {
   -webkit-animation: 2s fade-in-leave-animation;
   animation: 2s fade-in-leave-animation;
 }
-@-moz-keyframes animateMe-add {
+.hover-logo {
+  width: 62px;
+  height: 62px;
+}
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite;
+}
+@-moz-keyframes dash {
   0% {
-    opacity: 0;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }
-@-webkit-keyframes animateMe-add {
+@-webkit-keyframes dash {
   0% {
-    opacity: 0;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }
-@-o-keyframes animateMe-add {
+@-o-keyframes dash {
   0% {
-    opacity: 0;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }
-@-ms-keyframes animateMe-add {
+@-ms-keyframes dash {
   0% {
-    opacity: 0;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }
-@keyframes animateMe-add {
+@keyframes dash {
   0% {
-    opacity: 0;
+    stroke-dashoffset: 1000;
   }
 
   100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@-o-keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@-ms-keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes animateMe-remove {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+    stroke-dashoffset: 0;
   }
 }

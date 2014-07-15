@@ -22,9 +22,9 @@ module.exports = function(app) {
   app.get('/api/blog', blog.getBlogRecords);
   app.get('/api/blog/:id', blog.getBlogRecordById);
   app.get('/api/blog/:id/edit', blog.getBlogRecordById);
-  app.post('/api/blog', blog.createBlogRecord);
-  app.put('/api/blog', blog.updateBlogRecord);
-  app.delete('/api/blog/:id', blog.deleteBlogRecord);
+  app.post('/api/blog', auth.requiresRole('admin'), blog.createBlogRecord);
+  app.put('/api/blog', auth.requiresRole('admin'), blog.updateBlogRecord);
+  app.delete('/api/blog/:id', auth.requiresRole('admin'), blog.deleteBlogRecord);
 
   app.get('/partials/*', function(req, res) {
     res.render('../../public/app/' + req.params);
