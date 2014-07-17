@@ -57,7 +57,17 @@ section
   overflow hidden
 
 #aboutMeIntro
-  background url(https://lh3.googleusercontent.com/-pvhkbKpgGLI/U0978bPDhiI/AAAAAAAACC0/SKm7JUrm71E/w1032-h387-no/DSC_4314.jpg) no-repeat center bottom #fff;
+  background-color #EEE
+  /* Firefox */
+  -moz-transition: all 2s ease-in;
+  /* WebKit */
+  -webkit-transition: all 2s ease-in;
+  /* Opera */
+  -o-transition: all 2s ease-in;
+  /* Standard */
+  transition: all 2s ease-in;
+
+  /*background url(https://lh3.googleusercontent.com/-pvhkbKpgGLI/U0978bPDhiI/AAAAAAAACC0/SKm7JUrm71E/w1032-h387-no/DSC_4314.jpg) no-repeat center bottom #fff;*/
   //background url(https://lh3.googleusercontent.com/-TQOrDDYmkV0/U1YwdB1dyJI/AAAAAAAACIc/euRxYlzQ2OM/w858-h568-no/DSC_7564.jpg)
 #aboutMeIntro h2
   font-size 300%
@@ -67,6 +77,15 @@ section
   opacity 0.8
   text-align center
   margin 4.5em 0px 2em
+  span
+      /* Firefox */
+      -moz-transition: all 1.5s ease-out;
+      /* WebKit */
+      -webkit-transition: all 1.5s ease-out;
+      /* Opera */
+      -o-transition: all 1.5s ease-out;
+      /* Standard */
+      transition: all 1.5s ease-out;
 
 .reveal-animation
     // add the vendor prefixed versions as well
@@ -100,7 +119,54 @@ section
   background-repeat: repeat-x;
 }
 
+.view-animate {
+  padding:10px;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
+}
+
 .content
+  position: relative;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  -webkit-transition-property: left;
+  transition-property: left;
+  -moz-transition-duration: .5s;
+  -o-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: 1s
+
+.content:not(.active)
+  left: 540px
+
+.content.active
+  left: 0px
+
+
   //float right
   //overflow:auto
   //margin-left: 200px;

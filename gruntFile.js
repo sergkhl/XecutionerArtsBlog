@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     // Default task.
     //grunt.registerTask('default', ['jshint']);//, 'nodeunit']);
 
-    grunt.registerTask('default', ['jshint','build']);//, 'karma:unit']);
+    grunt.registerTask('default', [/*'jshint',*/'build']);//, 'karma:unit']);
     grunt.registerTask('build', ['clean','html2js','concat','copy:assets']); //,'recess:build'
     grunt.registerTask('release', ['clean','html2js','uglify','jshint','karma:unit','concat:index', 'recess:min','copy:assets']);
     grunt.registerTask('timestamp', function() {

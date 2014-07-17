@@ -1,8 +1,8 @@
 angular.module('app', [
     'ngResource',
     'ngRoute',
-    'ngSanitize'
-    //,'ngAnimate'
+    'ngSanitize',
+    'ngAnimate'
 ]);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
@@ -62,7 +62,11 @@ angular.module('app').run(function ($rootScope, $location) {
         if (rejection === 'not authorized') {
             $location.path('/');
         }
-    })
+    });
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.transitionState = "";
+        $rootScope.transitionState = "active";
+    });
 });
 
 angular.module('app').directive('syntaxElement', function () {
@@ -93,61 +97,18 @@ angular.module('app').directive('goClick', function ($location) {
 });
 
 
-angular.module('app').directive('showOnHover',
+angular.module('app').directive('goClick', function ($location) {
+    return function (scope, element, attrs) {
+        var path;
 
-    function () {
-        return {
-            link: function (scope, element, attrs) {
+        attrs.$observe('goClick', function (val) {
+            path = val;
+        });
 
-                var leftfademenu = $('body').find('#left-fade-menu');
-                var leftfadetoggle = $('body').find('#left-fade-toggle');
-
-                leftfadetoggle.bind('mouseenter', function () {
-                    leftfademenu.show();
-                    leftfademenu.hide().fadeIn('slow');
-
-                    console.log('showwwwweeee');
-                });
-
-                leftfademenu.bind('mouseleave', function () {
-                    /*leftfademenu.animate({opacity: 0}, 700).delay(700).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });*/
-
-                    leftfademenu.fadeOut('fast').delay(500).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });
-                    /*leftfademenu.removeClass("fade").delay(500).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });*/
-                    //leftfademenu.hide();
-                    console.log('hideeee');
-                });
-
-//                element.bind('mouseenter', function () {
-//                    $('body').find('#left-fade-menu').show();
-//                });
-//
-//                element.bind('mouseleave', function () {
-//                    element.find('#left-fade-menu').hide();
-//                });
-
-                element.closest('lol').bind('mouseenter', function () {
-                    element.show();
-                });
-                element.closest('lol').bind('mouseleave', function () {
-                    element.hide();
-
-                    var contextmenu = element.find('#contextmenu');
-                    contextmenu.click();
-
-                    element.parent().removeClass('open');
-
-                });
-
-            }
-        };
-    })
+        element.bind('click', function () {
+            scope.$apply(function () {
+                $location.path(path);
+            });
+        });
+    };
+});

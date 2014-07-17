@@ -20,8 +20,8 @@ block main-content
 
 
 
-  section.content
-    div(ng-view)
+  section.content(class="{{transitionState}}")
+    div.view-animate(ng-view)
 
   footer.container.text-center
     p “Don’t grieve. Anything you lose comes round in another form.” – Rumi

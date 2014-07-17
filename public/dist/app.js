@@ -1,4 +1,4 @@
-/*! XecutionerArts - v0.0.0 - 2014-07-15
+/*! XecutionerArts - v0.0.0 - 2014-07-17
  * https://github.com/
  * Copyright (c) 2014 Sergio Khlopenkov;
  * Licensed MIT
@@ -566,11 +566,170 @@
 		window.Please = define_Please();
 	}
 })( window );
+/**
+ * Created by Leonheart on 7/15/2014.
+ */
+//function addEventListener(e, t, n) {
+//    if (e.addEventListener) {
+//        e.addEventListener(t, n)
+//    } else {
+//        e.attachEvent("on" + t, function () {
+//            n.call(e)
+//        })
+//    }
+//}
+//function color_cycle() {
+//    var e = document.getElementById("title").getElementsByTagName("span");
+//    var t = document.getElementsByClassName("download")[0];
+//    for (var n = e.length - 1; n >= 0; n--) {
+//        e[n].style.color = Please.make_color({saturation: .7, value: .7})
+//    }
+//    t.style.color = Please.make_color({saturation: .7, value: .7})
+//}
+//function easeInOutQuad(e) {
+//    return e < .5 ? 2 * e * e : -1 + (4 - 2 * e) * e
+//}
+//function scrollTo(e, t, n, r) {
+//    function u(e, t) {
+//        return e < t ? e : t
+//    }
+//
+//    function a(f) {
+//        var l = Date.now(), c = u(1, (l - i) / t), h = n(c);
+//        s.scrollTop = h * (e - o) + o;
+//        if (c < 1)requestAnimationFrame(a); else if (r)r()
+//    }
+//
+//    var i = Date.now(), s = document.documentElement.scrollTop ? document.documentElement : document.body, o = s.scrollTop;
+//    if (o === e) {
+//        r();
+//        return
+//    }
+//    requestAnimationFrame(a)
+//}
+//function remove_first_child(e) {
+//    if (e.hasChildNodes()) {
+//        e.removeChild(e.childNodes[0])
+//    }
+//}
+//(function () {
+//    var e = 0;
+//    var t = ["ms", "moz", "webkit", "o"];
+//    for (var n = 0; n < t.length && !window.requestAnimationFrame; ++n) {
+//        window.requestAnimationFrame = window[t[n] + "RequestAnimationFrame"];
+//        window.cancelAnimationFrame = window[t[n] + "CancelAnimationFrame"] || window[t[n] + "CancelRequestAnimationFrame"]
+//    }
+//    if (!window.requestAnimationFrame)window.requestAnimationFrame = function (t, n) {
+//        var r = (new Date).getTime();
+//        var i = Math.max(0, 16 - (r - e));
+//        var s = window.setTimeout(function () {
+//            t(r + i)
+//        }, i);
+//        e = r + i;
+//        return s
+//    };
+//    if (!window.cancelAnimationFrame)window.cancelAnimationFrame = function (e) {
+//        clearTimeout(e)
+//    }
+//})();
+//color_cycle();
+//window.setInterval(color_cycle, 3e3);
+//var make_color = document.getElementById("make-color");
+//addEventListener(make_color, "click", function () {
+//    remove_first_child(document.getElementById("make-color-demo"));
+//    document.getElementById("make-color-demo").style.background = Please.make_color()
+//});
+//var make_color_multiple = document.getElementById("make-color-multiple");
+//addEventListener(make_color_multiple, "click", function () {
+//    var e = document.getElementById("multiple-demo").getElementsByTagName("div");
+//    var t = Please.make_color({colors_returned: 4});
+//    for (var n = e.length - 1; n >= 0; n--) {
+//        remove_first_child(e[n]);
+//        e[n].style.background = t[n]
+//    }
+//});
+//var base_color = document.getElementById("base-color");
+//var base_color_picker = document.getElementById("base-color-picker");
+//addEventListener(base_color, "click", function () {
+//    remove_first_child(document.getElementById("base-color-demo"));
+//    document.getElementById("base-color-demo").style.background = Please.make_color({base_color: base_color_picker.value})
+//});
+//var grey_color = document.getElementById("grey-color");
+//addEventListener(grey_color, "click", function () {
+//    remove_first_child(document.getElementById("grey-color-demo"));
+//    document.getElementById("grey-color-demo").style.background = Please.make_color({greyscale: true})
+//});
+//var random_color = document.getElementById("random-color");
+//addEventListener(random_color, "click", function () {
+//    remove_first_child(document.getElementById("random-color-demo"));
+//    document.getElementById("random-color-demo").style.background = Please.make_color({golden: false, full_random: true})
+//});
+//var fiddle_hue = document.getElementById("fiddle-hue");
+//var fiddle_sat = document.getElementById("fiddle-sat");
+//var fiddle_val = document.getElementById("fiddle-val");
+//var fiddle_color = document.getElementById("fiddle-color");
+//addEventListener(fiddle_color, "click", function () {
+//    var e, t, n;
+//    if (fiddle_hue.value.length == 0) {
+//        e = null
+//    } else {
+//        e = parseInt(fiddle_hue.value);
+//        if (isNaN(e)) {
+//            e = null
+//        }
+//    }
+//    if (fiddle_sat.value.length == 0) {
+//        t = null
+//    } else {
+//        t = parseFloat(fiddle_sat.value);
+//        if (isNaN(t)) {
+//            t = null
+//        }
+//    }
+//    if (fiddle_val.value.length == 0) {
+//        n = null
+//    } else {
+//        n = parseFloat(fiddle_val.value);
+//        if (isNaN(n)) {
+//            n = null
+//        }
+//    }
+//    remove_first_child(document.getElementById("fiddle-color-demo"));
+//    document.getElementById("fiddle-color-demo").style.background = Please.make_color({golden: false, hue: e, saturation: t, value: n})
+//});
+//var scheme_color_picker = document.getElementById("scheme-color-picker");
+//var scheme_color = document.getElementById("scheme-color");
+//addEventListener(scheme_color, "click", function () {
+//    var e = document.getElementById("scheme-demo").getElementsByTagName("div");
+//    var t = Please.NAME_to_HSV(scheme_color_picker.value);
+//    var n = Please.make_scheme(t, {scheme_type: "ana", format: "rgb-string"});
+//    for (var r = 0; r < e.length; r++) {
+//        remove_first_child(e[r]);
+//        e[r].style.background = n[r]
+//    }
+//});
+//var demos = document.getElementsByClassName("demo");
+//for (var i = demos.length - 1; i >= 0; i--) {
+//    addEventListener(demos[i], "click", function () {
+//        var e = document.createTextNode(this.style.backgroundColor);
+//        remove_first_child(this);
+//        this.appendChild(e)
+//    })
+//}
+//var nav = document.getElementsByTagName("li");
+//var articles = document.getElementsByTagName("article");
+//for (var i = 0; i < nav.length; i++) {
+//    (function (e) {
+//        addEventListener(nav[e], "click", function () {
+//            scrollTo(articles[e].offsetTop, 300, easeInOutQuad)
+//        })
+//    })(i)
+//}
 angular.module('app', [
     'ngResource',
     'ngRoute',
-    'ngSanitize'
-    //,'ngAnimate'
+    'ngSanitize',
+    'ngAnimate'
 ]);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
@@ -630,7 +789,11 @@ angular.module('app').run(function ($rootScope, $location) {
         if (rejection === 'not authorized') {
             $location.path('/');
         }
-    })
+    });
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.transitionState = "";
+        $rootScope.transitionState = "active";
+    });
 });
 
 angular.module('app').directive('syntaxElement', function () {
@@ -661,65 +824,21 @@ angular.module('app').directive('goClick', function ($location) {
 });
 
 
-angular.module('app').directive('showOnHover',
+angular.module('app').directive('goClick', function ($location) {
+    return function (scope, element, attrs) {
+        var path;
 
-    function () {
-        return {
-            link: function (scope, element, attrs) {
+        attrs.$observe('goClick', function (val) {
+            path = val;
+        });
 
-                var leftfademenu = $('body').find('#left-fade-menu');
-                var leftfadetoggle = $('body').find('#left-fade-toggle');
-
-                leftfadetoggle.bind('mouseenter', function () {
-                    leftfademenu.show();
-                    leftfademenu.hide().fadeIn('slow');
-
-                    console.log('showwwwweeee');
-                });
-
-                leftfademenu.bind('mouseleave', function () {
-                    /*leftfademenu.animate({opacity: 0}, 700).delay(700).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });*/
-
-                    leftfademenu.fadeOut('fast').delay(500).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });
-                    /*leftfademenu.removeClass("fade").delay(500).queue(function(next) {
-                        leftfademenu.hide();
-                        next();
-                    });*/
-                    //leftfademenu.hide();
-                    console.log('hideeee');
-                });
-
-//                element.bind('mouseenter', function () {
-//                    $('body').find('#left-fade-menu').show();
-//                });
-//
-//                element.bind('mouseleave', function () {
-//                    element.find('#left-fade-menu').hide();
-//                });
-
-                element.closest('lol').bind('mouseenter', function () {
-                    element.show();
-                });
-                element.closest('lol').bind('mouseleave', function () {
-                    element.hide();
-
-                    var contextmenu = element.find('#contextmenu');
-                    contextmenu.click();
-
-                    element.parent().removeClass('open');
-
-                });
-
-            }
-        };
-    })
-
+        element.bind('click', function () {
+            scope.$apply(function () {
+                $location.path(path);
+            });
+        });
+    };
+});
 angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q, mvUser) {
     return {
         authenticateUser: function (username, password) {
@@ -1108,7 +1227,31 @@ angular.module('app').controller('mvCourseListCtrl', function ($scope, mvCachedC
     ];
     $scope.sortOrder = $scope.sortOptions[0].value;
 });
-angular.module('app').controller('mvMainAboutCtrl', function ($scope) {
+angular.module('app').controller('mvMainAboutCtrl', function ($scope, $interval) {
+    var stop = $interval(function () {
+        color_cycle();
+    }, 3000);
+
+    var color_cycle = function () {
+        try {
+            var e = document.getElementById("aboutMeIntro").getElementsByTagName("span");
+            var bg = document.getElementById("aboutMeIntro");
+            for (var n = e.length - 1; n >= 0; n--) {
+                e[n].style.color = Please.make_color({saturation: .7, value: .7});
+            }
+            bg.style.backgroundColor = Please.make_color({saturation: .4, value: .4});
+        } catch (error) {
+//            console.log(error);
+            if (angular.isDefined(stop)) {
+                $interval.cancel(stop);
+                stop = undefined;
+            }
+        }
+
+    };
+    color_cycle();
+
+
     //$scope.courses = mvCachedCourses.query();
 });
 angular.module('app').controller('mvMainCtrl', function ($scope, mvCachedBlog, mvCachedTechs) {
@@ -1144,165 +1287,6 @@ angular.module('app').controller('mvTechListCtrl', function ($scope, mvCachedTec
     ];
     $scope.sortOrder = $scope.sortOptions[0].value;
 });
-/**
- * Created by Leonheart on 7/15/2014.
- */
-function addEventListener(e, t, n) {
-    if (e.addEventListener) {
-        e.addEventListener(t, n)
-    } else {
-        e.attachEvent("on" + t, function () {
-            n.call(e)
-        })
-    }
-}
-function color_cycle() {
-    var e = document.getElementById("title").getElementsByTagName("span");
-    var t = document.getElementsByClassName("download")[0];
-    for (var n = e.length - 1; n >= 0; n--) {
-        e[n].style.color = Please.make_color({saturation: .7, value: .7})
-    }
-    t.style.color = Please.make_color({saturation: .7, value: .7})
-}
-function easeInOutQuad(e) {
-    return e < .5 ? 2 * e * e : -1 + (4 - 2 * e) * e
-}
-function scrollTo(e, t, n, r) {
-    function u(e, t) {
-        return e < t ? e : t
-    }
-
-    function a(f) {
-        var l = Date.now(), c = u(1, (l - i) / t), h = n(c);
-        s.scrollTop = h * (e - o) + o;
-        if (c < 1)requestAnimationFrame(a); else if (r)r()
-    }
-
-    var i = Date.now(), s = document.documentElement.scrollTop ? document.documentElement : document.body, o = s.scrollTop;
-    if (o === e) {
-        r();
-        return
-    }
-    requestAnimationFrame(a)
-}
-function remove_first_child(e) {
-    if (e.hasChildNodes()) {
-        e.removeChild(e.childNodes[0])
-    }
-}
-(function () {
-    var e = 0;
-    var t = ["ms", "moz", "webkit", "o"];
-    for (var n = 0; n < t.length && !window.requestAnimationFrame; ++n) {
-        window.requestAnimationFrame = window[t[n] + "RequestAnimationFrame"];
-        window.cancelAnimationFrame = window[t[n] + "CancelAnimationFrame"] || window[t[n] + "CancelRequestAnimationFrame"]
-    }
-    if (!window.requestAnimationFrame)window.requestAnimationFrame = function (t, n) {
-        var r = (new Date).getTime();
-        var i = Math.max(0, 16 - (r - e));
-        var s = window.setTimeout(function () {
-            t(r + i)
-        }, i);
-        e = r + i;
-        return s
-    };
-    if (!window.cancelAnimationFrame)window.cancelAnimationFrame = function (e) {
-        clearTimeout(e)
-    }
-})();
-color_cycle();
-window.setInterval(color_cycle, 3e3);
-var make_color = document.getElementById("make-color");
-addEventListener(make_color, "click", function () {
-    remove_first_child(document.getElementById("make-color-demo"));
-    document.getElementById("make-color-demo").style.background = Please.make_color()
-});
-var make_color_multiple = document.getElementById("make-color-multiple");
-addEventListener(make_color_multiple, "click", function () {
-    var e = document.getElementById("multiple-demo").getElementsByTagName("div");
-    var t = Please.make_color({colors_returned: 4});
-    for (var n = e.length - 1; n >= 0; n--) {
-        remove_first_child(e[n]);
-        e[n].style.background = t[n]
-    }
-});
-var base_color = document.getElementById("base-color");
-var base_color_picker = document.getElementById("base-color-picker");
-addEventListener(base_color, "click", function () {
-    remove_first_child(document.getElementById("base-color-demo"));
-    document.getElementById("base-color-demo").style.background = Please.make_color({base_color: base_color_picker.value})
-});
-var grey_color = document.getElementById("grey-color");
-addEventListener(grey_color, "click", function () {
-    remove_first_child(document.getElementById("grey-color-demo"));
-    document.getElementById("grey-color-demo").style.background = Please.make_color({greyscale: true})
-});
-var random_color = document.getElementById("random-color");
-addEventListener(random_color, "click", function () {
-    remove_first_child(document.getElementById("random-color-demo"));
-    document.getElementById("random-color-demo").style.background = Please.make_color({golden: false, full_random: true})
-});
-var fiddle_hue = document.getElementById("fiddle-hue");
-var fiddle_sat = document.getElementById("fiddle-sat");
-var fiddle_val = document.getElementById("fiddle-val");
-var fiddle_color = document.getElementById("fiddle-color");
-addEventListener(fiddle_color, "click", function () {
-    var e, t, n;
-    if (fiddle_hue.value.length == 0) {
-        e = null
-    } else {
-        e = parseInt(fiddle_hue.value);
-        if (isNaN(e)) {
-            e = null
-        }
-    }
-    if (fiddle_sat.value.length == 0) {
-        t = null
-    } else {
-        t = parseFloat(fiddle_sat.value);
-        if (isNaN(t)) {
-            t = null
-        }
-    }
-    if (fiddle_val.value.length == 0) {
-        n = null
-    } else {
-        n = parseFloat(fiddle_val.value);
-        if (isNaN(n)) {
-            n = null
-        }
-    }
-    remove_first_child(document.getElementById("fiddle-color-demo"));
-    document.getElementById("fiddle-color-demo").style.background = Please.make_color({golden: false, hue: e, saturation: t, value: n})
-});
-var scheme_color_picker = document.getElementById("scheme-color-picker");
-var scheme_color = document.getElementById("scheme-color");
-addEventListener(scheme_color, "click", function () {
-    var e = document.getElementById("scheme-demo").getElementsByTagName("div");
-    var t = Please.NAME_to_HSV(scheme_color_picker.value);
-    var n = Please.make_scheme(t, {scheme_type: "ana", format: "rgb-string"});
-    for (var r = 0; r < e.length; r++) {
-        remove_first_child(e[r]);
-        e[r].style.background = n[r]
-    }
-});
-var demos = document.getElementsByClassName("demo");
-for (var i = demos.length - 1; i >= 0; i--) {
-    addEventListener(demos[i], "click", function () {
-        var e = document.createTextNode(this.style.backgroundColor);
-        remove_first_child(this);
-        this.appendChild(e)
-    })
-}
-var nav = document.getElementsByTagName("li");
-var articles = document.getElementsByTagName("article");
-for (var i = 0; i < nav.length; i++) {
-    (function (e) {
-        addEventListener(nav[e], "click", function () {
-            scrollTo(articles[e].offsetTop, 300, easeInOutQuad)
-        })
-    })(i)
-}
 angular.module('templates.app', []);
 
 
