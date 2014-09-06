@@ -1,4 +1,4 @@
-/*! XecutionerArts - v0.0.0 - 2014-07-17
+/*! XecutionerArts - v0.0.0 - 2014-07-21
  * https://github.com/
  * Copyright (c) 2014 Sergio Khlopenkov;
  * Licensed MIT
